@@ -1,6 +1,9 @@
 #include "satv_emu.h"
 #include<stdio.h>
 #include<string.h>
+/*
+	simple macros to bitshift are operands to the right locations
+*/
 #define loh(__x) (__x<<4)
 #define roh(__x) (__x<<8)
 
@@ -75,10 +78,21 @@ int main(){
 		clear the memory 
 	*/
 	memset(ctx.ram,0xff,256);
+	/*
+		init context
+	*/
 	ctx.ip = 0;
 	ctx.bank = 0;
-
+	/*
+		copy data located at program_code into are RAM at
+		the location PROGRAM_ADDRESS
+	*/
 	memcpy(ctx.ram+PROGRAM_ADDRESS,program_code,sizeof(program_code));
 	printf("running program.\n");
+	/*
+		we provide the functions with two arguments,
+		the pointer of 'ctx' and the entry point to where the program
+		is stored in RAM.
+	*/
 	satve_exec(&ctx,PROGRAM_ADDRESS);
 }

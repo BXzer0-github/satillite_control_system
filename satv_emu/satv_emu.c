@@ -1,6 +1,12 @@
 #include "satv_emu.h"
 #include<stdio.h>
+/*
+	this lets us read and write 16-bit words
+*/
 #define ram(__ct,__loc) ((uint16_t*)((__ct)->ram+((__loc)|(__ct)->bank)))[0]
+/*
+	this is for single bytes
+*/
 #define ram8(__ct,__loc) (__ct)->ram[(__loc)|(__ct)->bank]
 
 void static satve_add(struct satve_context *ct,uint16_t data) {
@@ -58,15 +64,19 @@ void(*optab[])(struct satve_context*,uint16_t) = {
 
 void satve_exec(struct satve_context *ct, uint16_t entry){
 	uint16_t opc;
-	
-	ct->ip = 0;
+	/*
+		set the instruction pointer to point to the first instruction in are program
+	*/
+	ct->ip = entry;
 	uint16_t in;
 	while(1){
 		/*
 			the instruction
-			we cast to 16-bit as thats how bit the instructions are
+			we cast to 16-bit as thats how big the instructions are.
+
+			ct->ip = location of instruction word(16-bit) in the RAM.
 		*/
-		in = ((uint16_t*)(ct->ram+entry+ct->ip))[0];
+		in = ((uint16_t*)(ct->ram+ct->ip))[0];
 		printf("# %x.\n",in);
 		/*
 			first 4-bits are the opcode

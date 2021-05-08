@@ -64,13 +64,11 @@ uint16_t program_code[] = {
 	_satve_exit	
 };
 
-struct satve_pgm are_program = {
-	.data = 128,
-	.len = sizeof(program_code)
-};
 /*
 	the context
 */
+
+#define PROGRAM_ADDRESS 128
 struct satve_context ctx;
 int main(){
 	/*
@@ -80,7 +78,7 @@ int main(){
 	ctx.ip = 0;
 	ctx.bank = 0;
 
-	memcpy(ctx.ram+are_program.data,program_code,are_program.len);
+	memcpy(ctx.ram+PROGRAM_ADDRESS,program_code,sizeof(program_code));
 	printf("running program.\n");
-	satve_exec(&ctx,&are_program);
+	satve_exec(&ctx,PROGRAM_ADDRESS);
 }

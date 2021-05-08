@@ -56,7 +56,7 @@ void(*optab[])(struct satve_context*,uint16_t) = {
 	satve_bank
 };
 
-void satve_exec(struct satve_context *ct, struct satve_pgm *pgm){
+void satve_exec(struct satve_context *ct, uint16_t entry){
 	uint16_t opc;
 	
 	ct->ip = 0;
@@ -66,7 +66,7 @@ void satve_exec(struct satve_context *ct, struct satve_pgm *pgm){
 			the instruction
 			we cast to 16-bit as thats how bit the instructions are
 		*/
-		in = ((uint16_t*)(ct->ram+pgm->data+ct->ip))[0];
+		in = ((uint16_t*)(ct->ram+entry+ct->ip))[0];
 		printf("# %x.\n",in);
 		/*
 			first 4-bits are the opcode

@@ -14,17 +14,6 @@
 #define _satve_bank 3
 
 #define _satve_exit 4
-struct satve_pgm {
-	/*
-		location within ram in context
-	*/
-	uint16_t data;
-	/*
-		how many bytes makes up this program
-	*/
-	uint32_t len;
-};
-
 struct satve_context{
 	/*
 		the block of ram we are going on,
@@ -43,6 +32,5 @@ struct satve_context{
 	*/
 	uint16_t ip;
 };
-void satve_exec(struct satve_context*,struct satve_pgm*);
-
+void satve_exec(struct satve_context*,uint16_t);
 #endif/*__satv__emu__h*/

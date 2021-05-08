@@ -4,6 +4,37 @@
 #define loh(__x) (__x<<4)
 #define roh(__x) (__x<<8)
 
+/*
+	we have instructions that look like
+	_satve_{add,movi,out,bank,exit}
+
+	FORMATTING:
+
+_satve_add
+  LEFT ADDRESS   RIGHT ADDRESS     OPCODE
+  11-8           7-4               3-0     # bits
+	xxxx           xxxx              0000
+
+_satve_movi
+	VALUE       NOTUSED     OPCODE
+	15-8        7-4         3-0              # bits
+	iiiiiiii    xxxx        0001
+
+	i = integer value 0-255
+	x = unused bits
+
+	
+_satve_out
+	ADDRESS     OPCODE
+	7-4         3-0
+	0000        0010                         # bits
+
+_satve_bank
+	BANK             OPCODE
+	15-4             3-0
+	000000000000     0011                         # bits
+*/
+
 uint16_t program_code[] = {
 	/* set to bank(0) */
 	_satve_bank|loh(0),

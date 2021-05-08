@@ -1,1 +1,0 @@
-# satillite_control_system

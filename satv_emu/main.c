@@ -7,11 +7,22 @@
 uint16_t program_code[] = {
 	/* set to bank(0) */
 	_satve_bank|loh(0),
-	/* move the value 0x41 into address(0) */
-	_satve_movi|loh(0)|roh(0x41),
-	/* move the value 0x41 into address(1) */
-	_satve_movi|loh(1)|roh(0x41),
+	/* move the value 0x10 into address(0) */
+	_satve_movi|loh(0)|roh(0x10),
+	/* move the value 0x10 into address(1) */
+	_satve_movi|loh(1)|roh(0x10),
+	/* move the value 0x20 into address(2) */
+	_satve_movi|loh(2)|roh(0x20),
+	/* move the value 0x20 into address(3) */
+	_satve_movi|loh(3)|roh(0x20),
 	/* show the value at this location */
+	_satve_out|loh(0),
+	_satve_out|loh(2),
+	/*
+		0x1010 + 0x2020 
+	*/
+	_satve_add|loh(0)|roh(2),
+	/* show result from add instruction*/
 	_satve_out|loh(0),
 	_satve_exit	
 };

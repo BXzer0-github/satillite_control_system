@@ -18,13 +18,13 @@ _satve_add
 	# equation (Y = Y+X)
 
 _satve_movi
-	VALUE       NOTUSED     OPCODE
+	VALUE(X)    ADDRESS(Y)  OPCODE
 	15-8        7-4         3-0              # bits
 	iiiiiiii    xxxx        0001
 
 	i = integer value 0-255
-	x = unused bits
 
+	# equation (Y = X)
 	
 _satve_out
 	ADDRESS     OPCODE
@@ -32,9 +32,13 @@ _satve_out
 	0000        0010                         # bits
 
 _satve_bank
-	BANK             OPCODE
+	BANK(X)          OPCODE
 	15-4             3-0
 	000000000000     0011                         # bits
+
+	# equation 
+
+	satve_context.bank = X
 */
 
 uint16_t program_code[] = {

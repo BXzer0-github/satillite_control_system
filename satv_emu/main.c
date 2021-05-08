@@ -11,9 +11,11 @@
 	FORMATTING:
 
 _satve_add
-  LEFT ADDRESS   RIGHT ADDRESS     OPCODE
-  11-8           7-4               3-0     # bits
+	ADDRESS(X)     ADDRESS(Y)        OPCODE
+	11-8           7-4               3-0     # bits
 	xxxx           xxxx              0000
+
+	# equation (Y = Y+X)
 
 _satve_movi
 	VALUE       NOTUSED     OPCODE

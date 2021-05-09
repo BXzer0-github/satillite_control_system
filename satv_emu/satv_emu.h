@@ -2,17 +2,31 @@
 #define __satv__emu__h
 #include<stdint.h>
 
-#define _satve_add 0
+/*
+	the index in the list of functions pointers
+*/
 
 /*
-	control bits for movi instruction
+	add has index of (0)
+*/
+#define _satve_add 0
+/*
+	movi has index of (1)
 */
 #define _satve_movi 1
-
+/*
+	out has index of (2)
+*/
 #define _satve_out 2
-
+/*
+	bank has index of (3)
+*/
 #define _satve_bank 3
 
+
+/*
+	has no index
+*/
 #define _satve_exit 4
 struct satve_context{
 	/*

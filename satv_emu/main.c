@@ -59,7 +59,7 @@ uint16_t program_code[] = {
 	_satve_out|loh(0),
 	_satve_out|loh(2),
 	/*
-		0x1010 + 0x2020 
+		0x1010 + 0x2020 = 0x3030 
 	*/
 	_satve_add|loh(0)|roh(2),
 	/* show result from add instruction*/

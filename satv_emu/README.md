@@ -1,4 +1,4 @@
-##### how to compile and run <br />
+##### how to compile and run
 ###### to compile 
 ```
 sh compile.sh

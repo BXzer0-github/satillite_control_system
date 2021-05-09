@@ -1,0 +1,5 @@
+*.o
+arout
+err
+log
+lld.out

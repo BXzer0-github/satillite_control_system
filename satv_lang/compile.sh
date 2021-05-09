@@ -4,4 +4,4 @@ gcc $cc_flags -c gen.c
 gcc $cc_flags -c parser.c
 gcc $cc_flags -c satv_lang.c
 gcc $cc_flags -c lexer.c
-gcc $cc_flags main.c $cc_objs
+gcc $cc_flags main.c $cc_objs -o svlang

@@ -1,2 +1,2 @@
-word_s hello
-hello = 21
+word_s test_variable
+test_variable = 21
